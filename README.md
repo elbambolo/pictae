@@ -1,3 +1,8 @@
+**ATTENZIONE: Progetto in Fase di Sviluppo**
+
+Questo progetto è attualmente in fase di sviluppo e non è ancora completamente funzionante. Il codice è incompleto e potrebbe contenere bug. Una versione funzionante sarà disponibile a breve. Resta sintonizzato per gli aggiornamenti!
+
+
 # Galleria Immagini Multimediali
 
 Questo progetto è una piattaforma per la gestione di gallerie di immagini multimediali basata su PHP, MySQL e CodeIgniter. Include funzionalità per la conversione automatica di immagini in formati come AVIF.
