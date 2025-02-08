@@ -43,6 +43,11 @@ class Album extends Migration
                 'default' => false,
             ],
         ]);
+
+        $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('id_proprietario', 'utenti', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_galleria', 'galleria', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('album');
     }
 
     public function down()

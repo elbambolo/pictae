@@ -50,6 +50,10 @@ class Exif extends Migration
                 'type' => 'DATETIME',
             ],
         ]);
+
+        $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('id_immagine', 'immagini', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('exif');
     }
 
     public function down()

@@ -39,6 +39,10 @@ class Galleria extends Migration
                 'default' => false,
             ],
         ]);
+
+        $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('id_proprietario', 'utenti', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('galleria');
     }
 
     public function down()
