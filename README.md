@@ -33,7 +33,7 @@ Questo progetto è una piattaforma per la gestione di gallerie di immagini multi
     - Modifica il file `.env` con le tue credenziali del database.
 5. Esegui le migrazioni per creare le tabelle necessarie:
     ```bash
-    php spark migrate
+    php spark migrate --all
     ```
 6. Avvia il server:
     ```bash
