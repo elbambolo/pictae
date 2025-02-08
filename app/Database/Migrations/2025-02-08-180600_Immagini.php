@@ -68,10 +68,6 @@ class Immagini extends Migration
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('id_galleria', 'galleria', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_proprietario', 'utenti', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_album', 'album', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_exif', 'exif', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('immagini');
     }
 
