@@ -71,4 +71,10 @@ class ImmaginiModel extends Model
     {
         return $this->find($id);
     }
+
+    public function insertImmagine($data)
+    {
+        $this->insert($data);
+        return $this->insertID;
+    }
 }

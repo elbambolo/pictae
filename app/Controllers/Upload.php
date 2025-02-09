@@ -54,7 +54,17 @@ class Upload extends BaseController
         }
 
         if (empty($uploadedFiles)) {
-            return redirect()->back()->with('error', 'No files were uploaded.');
+            /**
+             * Redirects the user back to the previous page with an error message.
+             *
+             * This function uses the `redirect()->back()` method to send the user back to the previous page.
+             * It also attaches an error message indicating that no file was selected for upload.
+             * The error message is retrieved using the `lang()` function, which fetches the appropriate
+             * language string based on the current language settings of the application.
+             *
+             * @return \CodeIgniter\HTTP\RedirectResponse The redirect response object.
+             */
+            return redirect()->back()->with('error', lang('upload.no_file_selected'));
         }
 
         $data = [
