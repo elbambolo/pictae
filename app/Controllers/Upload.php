@@ -3,9 +3,39 @@
 namespace App\Controllers;
 use CodeIgniter\Files\File;
 
+/**
+ * Class Upload
+ *
+ * This class is responsible for handling the image upload process.
+ * It validates the uploaded image file(s) based on the specified rules,
+ * processes the upload, and stores the file(s) in the designated directory.
+ * If the validation fails or no files are uploaded, it redirects back with an error message.
+ * On successful upload, it returns a view with the uploaded file information.
+ *
+ * @package App\Controllers
+ *
+ * Flow of the Upload class:
+ * 1. getIndex() - Displays the upload view.
+ * 2. postUploadImage() - Handles the image upload process.
+ * 3. resizeImage() - Resizes the given image to the specified width and height.
+ * 4. createThumbnail() - Creates a thumbnail of the specified image.
+ * 5. cropImage() - Crops an image to the specified dimensions and saves it. Opional!!!
+ * 6. rotateImage() - Rotates an image by a specified angle and saves the rotated image.
+ * 7. addWatermark() - Adds a watermark to an image.
+ * 8. convertToAvif() - Converts an image to AVIF format.
+ */
+
 
 class Upload extends BaseController
 {
+    /**
+     * Displays the upload view.
+     *
+     * This method handles the GET request to the index route and returns
+     * the 'upload' view to the user.
+     *
+     * @return \CodeIgniter\View\View The upload view.
+     */
     public function getIndex()
     {
         return view('upload');
@@ -184,5 +214,17 @@ class Upload extends BaseController
             ->save($filepath);
 
         return $filepath;
+    }
+
+    /**
+     * Reads the EXIF data from the given file.
+     *
+     * @param string $file The path to the file from which to read the EXIF data.
+     * @return array|false The EXIF data as an associative array, or false if no data is found or the file is not readable.
+     */
+    private function leggiExif($file)
+    {
+        $exif = exif_read_data($file);
+        return $exif;
     }
 }
